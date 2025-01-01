@@ -1,0 +1,18 @@
+<div class="edit-page-grid">
+    <div class="grid-item">
+        <form class="edit-input-container" method="POST">
+            {% csrf_token %}
+            <h4>Title</h4>
+            <input type="text" class="create-page-title" name="title" placeholder="Title">
+            <h4>Content (In Markdown)</h4>
+            <textarea class="create-page-content" name="content" placeholder="Content (Enter in Markdown)"></textarea>
+            <div class="submit-botton-container">
+                <input type="submit" class="submit-button" value="Save">
+            </div>
+        </form>
+    </div>
+    <div class="grid-item">
+        <h4 style="color: white;">empty</h4>
+        <p>Note: Make sure the title matches the title entered in the markdown!</p>
+    </div>
+</div>

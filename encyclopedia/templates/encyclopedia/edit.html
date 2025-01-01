@@ -1,0 +1,33 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Page
+{% endblock %}
+
+{% block body %}
+    <h2 style="font-size: 34px;">Edit Page for <a href="{% url 'entry' entry_name %}">{{ entry_name }}</a></h2>
+
+    
+    <div class="edit-page-grid">
+        <div class="grid-item">
+            <form class="edit-input" method="POST">
+                {% csrf_token %}
+                <h4>Title</h4>
+                <input type="text" class="create-page-title" name="title" value="{{ entry_name }}">
+                <h4>Content (In Markdown)</h4>
+                <textarea name="content">{{ markdown_source }}</textarea>
+                <div class="submit-botton-container">
+                    <input type="submit" class="submit-button" value="Save">
+                </div>
+            </form>
+        </div>
+        <div class="grid-item">
+            <h4 style="color: white;">empty</h4>
+            <p>Note: It is recommended that the title entered matches the title in markdown.</p>
+            
+            {% if message %}
+                <h3 class="error-message">{{ message }}</h3>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock %}
