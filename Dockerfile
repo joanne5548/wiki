@@ -12,10 +12,11 @@ RUN apt-get update && apt-get install -y \
     postgresql-contrib \
     libpq-dev \
     vim \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", ":8000", "wiki.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "wiki.wsgi:application"]
