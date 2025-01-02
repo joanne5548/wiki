@@ -73,6 +73,7 @@ WSGI_APPLICATION = 'wiki.wsgi.application'
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = ['https://wiki.joannekim.dev']
 CSRF_USE_SESSIONS = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
