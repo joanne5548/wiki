@@ -3,7 +3,11 @@ version: '3'
 services:
   db:
     image: postgres
+    volumes:
+      - wiki_volume:/var/lib/postgresql/data
     environment:
+      - POSTGRES_DB=wiki
+      - POSTGRES_USER=joanne
       - POSTGRES_PASSWORD=1234
     
   web:
@@ -12,3 +16,8 @@ services:
       - .:/usr/src/app
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  wiki_volume:
