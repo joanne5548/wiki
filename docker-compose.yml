@@ -13,7 +13,7 @@ services:
   web:
     build: .
     volumes:
-      - .:/usr/src/app
+      - wiki_database:/usr/src/app/entries
     ports:
       - "8000:8000"
     depends_on:
@@ -21,3 +21,4 @@ services:
 
 volumes:
   wiki_volume:
+  wiki_database:
