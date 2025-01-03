@@ -131,11 +131,18 @@ p {
 
 .results-list-container {
     margin-top: 18px;
+    width: 70%;
+    min-width: 40rem;
 }
 
-.results-list-container .search-result {
+.search-result {
     font-size: 21px;
     /* font-weight: 550; */
+}
+
+.entry-description {
+    color: rgb(79, 79, 79);
+    font-weight: 475;
 }
 
 .entry-page-container ul {

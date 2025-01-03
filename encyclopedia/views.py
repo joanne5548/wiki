@@ -1,4 +1,5 @@
 from markdown2 import markdown
+from bs4 import BeautifulSoup
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -35,13 +36,36 @@ def entry_view(request, entry_name):
         "error_message": "The requested entry does not exist."
     })
 
+def handle_search_results(search_entries):
+    search_results = {}
+    for entry in search_entries:
+        file_directory = os.path.join(settings.BASE_DIR, "entries", f"{entry}.md")
+        with open(file_directory, 'r') as file:
+            entry_markdown = ""
+            file.readline() # skip the first line
+            for line in file:
+                entry_markdown += line
+            
+            entry_html = markdown(entry_markdown)
+            entry_details = ''.join(BeautifulSoup(entry_html).findAll(text=True))
+            
+            entry_details_short = entry_details[:300]
+            if (len(entry_details) > 300):
+                entry_details_short = entry_details_short + "..."
+
+        search_results[entry] = entry_details_short
+    return search_results
+
 def results_view(request, query):
     if request.method == "POST":
         if 'q' in request.POST:
             return handle_search(request)
     
     query_lower = query.lower()
-    search_results = [entry for entry in util.list_entries() if query_lower in entry.lower()]
+    search_entries = [entry for entry in util.list_entries() if query_lower in entry.lower()]
+    
+    search_results = handle_search_results(search_entries)
+
     return render(request, "encyclopedia/results.html", {
         "search_query": query,
         "search_results": search_results,
