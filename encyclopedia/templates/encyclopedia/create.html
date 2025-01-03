@@ -22,9 +22,6 @@
             </form>
         </div>
         <div class="grid-column">
-            <h4 style="color: white;">empty</h4>
-            <p>Note: Make sure the title matches the title entered in the markdown!</p>
-            
             {% if message %}
                 {% if entry_name %}
                     <h3 class="error-message">{{ message }}<a href="{% url 'entry' entry_name %}">{{ entry_name }}</a></h3>

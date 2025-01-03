@@ -142,7 +142,7 @@ p {
 
 .entry-description {
     color: rgb(79, 79, 79);
-    font-weight: 400;
+    font-weight: 475;
 }
 
 .entry-page-container ul {
@@ -161,7 +161,9 @@ p {
 }
 
 .edit-page-grid .error-message {
-    padding-top: 33px;
+    padding-top: 27px;
+    font-size: 25px;
+    color: red;
 }
 
 .edit-input {

@@ -24,6 +24,7 @@ def entry_view(request, entry_name):
             return handle_search(request)
     
     markdown_source = util.get_entry(entry_name)
+    markdown_source = f"# {entry_name}\n" + markdown_source
     
     if markdown_source is not None:
         html = markdown(markdown_source)

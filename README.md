@@ -12,7 +12,10 @@
 ### Search
 - [x] Figure out a good way to make search case insensitive
 - [x] Work on CSS
-- [ ] Retrieve and display preview of entry page
+- [x] Retrieve and display preview of entry page
+
+### Page View
+- [x] Automatically add title on render
 
 ### New Page
 - [x] Work on CSS
