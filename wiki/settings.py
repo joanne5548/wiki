@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%710m*zic)#0u((qugw#1@e^ty!c)9j04956v@ly(_86n$rg)h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['wiki.joannekim.dev', 'www.wiki.joannekim.dev', '138.197.92.222', 'localhost', '192.168.0.97', '127.0.0.1']
 
@@ -72,8 +72,8 @@ WSGI_APPLICATION = 'wiki.wsgi.application'
 
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = ['https://wiki.joannekim.dev']
-CSRF_USE_SESSIONS = True
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# CSRF_USE_SESSIONS = True
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
